@@ -1,0 +1,8 @@
+{
+  "name": "ptitsynamv.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ptitsynamv/ptitsynamv.github.io.git",
+  "author": "ptitsynamv <ptitsynamv@gmail.com>",
+  "license": "MIT"
+}
