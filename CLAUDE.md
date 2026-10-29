@@ -14,8 +14,16 @@ There are no build, lint, or test commands. `package.json` holds only metadata (
 
 ## Structure
 
-- `index.html` is the entire site: a `masthead` header (name and title), an `#about` section (intro line plus a `list-group` of skill categories), and a `#contact` section whose icon links are large inline SVGs.
-- `css/styles.css` is the compiled theme CSS (~10k lines, Bootstrap bundled in). There's no SCSS source in the repo, so any change goes straight into this file. The only local change so far is the commented-out `.list-group-item` border (around line 5049). Keep edits minimal and mark them clearly, because the file is otherwise vendor output.
+- `index.html` is the entire site: a `masthead` header with in-page nav, then the sections `#about`, `#experience`, `#skills`, `#projects`, `#credentials` and `#contact`. The sections alternate between white and `bg-light` backgrounds. The LinkedIn and email icons in Contact are inline SVGs; GitHub uses Font Awesome.
+- `css/styles.css` is the compiled theme CSS (~10k lines, Bootstrap bundled in). There's no SCSS source. Site-specific rules (`.masthead-nav`, `.stats`, `.job*`, `.skill-group`, `.tag`) are in the "Custom CV styles" block at the end of the file. Put new rules there and leave the vendor part alone. The only edit inside the vendor part is the commented-out `.list-group-item` border.
+
+## Content source
+
+All CV facts come from the private repo `../career-ops` (`experience/`, `profile/skills-matrix.md`, `certificates/data.md`, `education/data.md`, `projects/registry.md`). For public wording, use its `profile/platforms/linkedin*.md` texts. Rules carried over from there:
+
+- Never invent or inflate facts: no raised numbers, extended dates or upgraded titles.
+- The Grid Dynamics client is described by domain only. Don't name Siav or the products Ermes and Connect.
+- Don't present skills from `skills-matrix.md` → "Not Evidenced Yet" as experience. Check `projects/registry.md` → "Usage Caveats" before featuring a project.
 - External assets load from CDNs in `<head>`: Font Awesome 5.13 (JS) and the Google Fonts Montserrat and Lato.
 - `assets/img/favicon.ico` is also used as the `og:image`.
 

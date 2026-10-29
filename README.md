@@ -14,13 +14,19 @@ The personal CV site of **Maria Ptitsyna**, a full-stack developer. It's live at
 
 The site gives recruiters and collaborators one stable URL with an up-to-date skills summary and a way to get in touch, without the overhead of maintaining a web app.
 
-It's a single static page with three parts:
+It's a single static page:
 
 | Section | Contents |
 | --- | --- |
-| **Header** | Name and role |
-| **About** | A short introduction and a categorized skill list (languages, frameworks, UI and accessibility, testing, architecture, DevOps, security, performance, tooling, back end, project management, soft skills) |
-| **Contact** | Links to [LinkedIn](https://www.linkedin.com/in/ptitsynamv/) and email |
+| **Header** | Name, role, core stack and in-page navigation |
+| **About** | Summary and headline numbers (years of experience, certifications) |
+| **Experience** | Roles at Grid Dynamics, EPAM, MaybeWorks and earlier PHP positions, with highlights and stack |
+| **Skills** | Grouped skill tags plus spoken languages |
+| **Side Projects** | Four selected public GitHub repos |
+| **Certifications & Education** | AWS and Anthropic certifications with Credly links, and degrees |
+| **Contact** | Links to [LinkedIn](https://www.linkedin.com/in/ptitsynamv/), [GitHub](https://github.com/ptitsynamv) and email |
+
+The content is taken from a private career-data repository (`career-ops`), which is the source of truth for every fact on the page.
 
 ## Architecture
 
@@ -78,9 +84,11 @@ Push to `master`. GitHub Pages publishes the repository root automatically.
 
 ## Editing content
 
-- **Skills and intro:** edit the `<li class="list-group-item">` entries and the `lead` paragraph in the `#about` section of `index.html`.
-- **Contact links:** edit the `#contact` section of `index.html`.
-- **Styles:** `css/styles.css` is compiled theme output and there's no SCSS source. Keep changes small and comment them so they stand out from the vendor code.
+Each part of the page is a `<section>` in `index.html` with a matching `id` (`#about`, `#experience`, `#skills`, `#projects`, `#credentials`, `#contact`). Update the facts in `career-ops` first, then copy them here.
+
+- **Roles:** one `<article class="card job">` per role in `#experience`.
+- **Skills:** `<span class="tag">` items inside the `skill-group` blocks in `#skills`.
+- **Styles:** `css/styles.css` is compiled theme output and there's no SCSS source. Site-specific styles (masthead nav, stats, job cards, skill tags) live in the commented block at the end of the file. Add new rules there.
 
 ## Credits and license
 
